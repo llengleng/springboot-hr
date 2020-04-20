@@ -7,34 +7,55 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 
 /**
- * @author : Lenovo
- * @date : 2020/4/18 18：40
- * @description :
+ * hr
+ * @author 
  */
 @Data
 public class Hr implements UserDetails {
+    /**
+     * hrID
+     */
     private Integer id;
+
+    /**
+     * 姓名
+     */
     private String name;
+
+    /**
+     * 手机号码
+     */
     private String phone;
+
+    /**
+     * 住宅电话
+     */
     private String telephone;
+
+    /**
+     * 联系地址
+     */
     private String address;
+
     private Boolean enabled;
+
+    /**
+     * 用户名
+     */
     private String username;
+
+    /**
+     * 密码
+     */
     private String password;
+
     private String userface;
+
     private String remark;
 
-    private static final long serialVersionUID = 1;
+    private static final long serialVersionUID = 1L;
 
-    @Override
-    public String getUsername() {
-        return username;
-    }
 
-    @Override
-    public String getPassword() {
-        return password;
-    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -58,6 +79,6 @@ public class Hr implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return enabled;
     }
 }

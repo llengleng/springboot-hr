@@ -58,6 +58,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginProcessingUrl("/doLogin")
                 .usernameParameter("username")
                 .passwordParameter("password")
+                .loginPage("/login")
                 .successHandler(new AuthenticationSuccessHandler() {
                     @Override
                     public void onAuthenticationSuccess(HttpServletRequest httpServletRequest,
@@ -66,9 +67,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         response.setContentType("application/json;charset=utf-8");
                         PrintWriter out = response.getWriter();
                         Hr hr = (Hr) authentication.getPrincipal();
-                        hr.setPassword("");
+                        hr.setPassword(null);
                         RespBean ok = RespBean.ok("登录成功",hr);
-                        out.write(new ObjectMapper().writeValueAsString(ok));
+                        out.write(new ObjectMapper().writeValueAsString(ok)); //jackson的
                         out.flush();
                         out.close();
                     }

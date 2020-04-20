@@ -2,7 +2,6 @@ package com.niit.springboothr.service;
 
 import com.niit.springboothr.mapper.HrMapper;
 import com.niit.springboothr.model.Hr;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -23,7 +22,7 @@ public class HrService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        Hr hr = hrMapper.loginByUername(s);
+        Hr hr = hrMapper.loadUserByUsername(s);
         if (hr == null){
             throw new UsernameNotFoundException("用户名不存在");
         }
