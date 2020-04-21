@@ -52,7 +52,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception{
         http.authorizeRequests()
-                .anyRequest().authenticated()
+                .antMatchers("/swagger-ui.html").permitAll()
+                .antMatchers("/springfox-swagger-ui/**").permitAll()
+                .antMatchers("/api/**").authenticated()
+//                .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginProcessingUrl("/doLogin")
