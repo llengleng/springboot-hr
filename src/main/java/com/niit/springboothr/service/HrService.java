@@ -21,11 +21,12 @@ public class HrService implements UserDetailsService {
     private HrMapper hrMapper;
 
     @Override
-    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        Hr hr = hrMapper.loadUserByUsername(s);
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Hr hr = hrMapper.loadUserByUsername(username);
         if (hr == null){
             throw new UsernameNotFoundException("用户名不存在");
         }
+        hr.setRoles(hrMapper.getHrRolesById(hr.getId()));
         return hr;
     }
 }
