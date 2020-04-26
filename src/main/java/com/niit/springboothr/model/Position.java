@@ -1,5 +1,6 @@
 package com.niit.springboothr.model;
 
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
@@ -12,8 +13,8 @@ public class Position {
 
     private String name;
 
-    @JsonFormat(pattern = "yyyy-MM-dd hh:hh",timezone = "Asia/Shanghai")
-    private Date createdate;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm",timezone = "Asia/Shanghai")
+    private Date createDate;
 
     private Boolean enabled;
 
