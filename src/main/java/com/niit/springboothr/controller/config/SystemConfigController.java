@@ -1,4 +1,4 @@
-package com.niit.springboothr.controller;
+package com.niit.springboothr.controller.config;
 
 import com.niit.springboothr.model.Menu;
 import com.niit.springboothr.service.MenuService;

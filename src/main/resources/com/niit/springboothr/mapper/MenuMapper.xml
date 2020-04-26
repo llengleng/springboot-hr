@@ -26,10 +26,7 @@
     <result column="iconCls2" jdbcType="VARCHAR" property="iconCls" />
     <result column="parentId2" jdbcType="INTEGER" property="parentId" />
     <result column="enabled2" jdbcType="BIT" property="enabled" />
-    <association property="meta" javaType="com.niit.springboothr.model.Meta">
-      <result column="keepAlive2" jdbcType="BIT" property="keepAlive" />
-      <result column="requireAuth2" jdbcType="BIT" property="requireAuth" />
-    </association>
+    <association property="meta" javaType="com.niit.springboothr.model.Meta"/>
     </collection>
   </resultMap>
 
