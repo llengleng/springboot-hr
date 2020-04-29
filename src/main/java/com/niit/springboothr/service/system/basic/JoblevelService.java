@@ -20,7 +20,6 @@ public class JoblevelService {
     public Integer addJobLevel(Joblevel jobLevel) {
         jobLevel.setEnabled(true);
         jobLevel.setCreateDate(new Date());
-
         return jobLevelMapper.insert(jobLevel);
     }
 

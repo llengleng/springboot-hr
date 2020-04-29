@@ -19,6 +19,12 @@
     delete from menu_role
     where id = #{id,jdbcType=INTEGER}
   </delete>
+  <insert id="insertRecode" parameterType="java.lang.Integer">
+    insert  into menu_role(mid,rid)values
+    <foreach collection="mids" separator="," item="mid">
+      (#{mid},#{rid})
+    </foreach>
+  </insert>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.niit.springboothr.model.MenuRole" useGeneratedKeys="true">
     insert into menu_role (mid, rid)
     values (#{mid,jdbcType=INTEGER}, #{rid,jdbcType=INTEGER})

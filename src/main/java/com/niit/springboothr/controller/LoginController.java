@@ -7,6 +7,7 @@ import io.swagger.annotations.SwaggerDefinition;
 import io.swagger.annotations.Tag;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import springfox.documentation.annotations.ApiIgnore;
 
 /**
  * @author : Lenovo
@@ -14,10 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @description :
  */
 @RestController
-@Api(tags = {"登录 API"},protocols = "http")
-@SwaggerDefinition(tags = {
-        @Tag(name = "登录 API",description = "微人事登录的API接口")
-})
+@ApiIgnore
 public class LoginController {
 
 

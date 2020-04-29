@@ -1,6 +1,10 @@
 package com.niit.springboothr.mapper;
 
+import com.niit.springboothr.model.Menu;
 import com.niit.springboothr.model.Role;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 public interface RoleMapper {
     int deleteByPrimaryKey(Integer id);
@@ -14,4 +18,10 @@ public interface RoleMapper {
     int updateByPrimaryKeySelective(Role record);
 
     int updateByPrimaryKey(Role record);
+
+    @Select("select * from role")
+    List<Role> getAllRoles();
+
+    List<Menu> getAllMenus();
+
 }

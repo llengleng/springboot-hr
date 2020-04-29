@@ -55,7 +55,7 @@
       <if test="name != null" >
         name = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="createdate != null" >
+      <if test="createDate != null" >
         createDate = #{createDate,jdbcType=TIMESTAMP},
       </if>
       <if test="enabled != null" >
