@@ -1,6 +1,7 @@
 package com.niit.springboothr.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.niit.springboothr.filter.LoginFilter;
 import com.niit.springboothr.model.Hr;
 import com.niit.springboothr.model.RespBean;
 import com.niit.springboothr.service.HrService;
@@ -20,6 +21,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.access.intercept.FilterSecurityInterceptor;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 
 import javax.servlet.ServletException;
@@ -47,6 +49,49 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
+    @Bean
+    LoginFilter login() throws Exception{
+        LoginFilter loginFilter = new LoginFilter();
+        loginFilter.setAuthenticationSuccessHandler(new AuthenticationSuccessHandler() {
+            @Override
+            public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
+                response.setContentType("application/json;charset=utf-8");
+                PrintWriter out = response.getWriter();
+                Hr hr = (Hr) authentication.getPrincipal();
+                hr.setPassword(null);
+                RespBean ok = RespBean.ok("登录成功",hr);
+                out.write(new ObjectMapper().writeValueAsString(ok)); //jackson的
+                out.flush();
+                out.close();
+            }
+        });
+        loginFilter.setAuthenticationFailureHandler(new AuthenticationFailureHandler() {
+            @Override
+            public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException e) throws IOException, ServletException {
+                response.setContentType("application/json;charset=utf-8");
+                PrintWriter out=response.getWriter();
+                RespBean respBean = RespBean.error("登录失败");
+                if (e instanceof LockedException){
+                    respBean.setMsg("账户被锁定，登录失败");
+                }else if (e instanceof BadCredentialsException){
+                    respBean.setMsg("用户名或密码错误，登录失败");
+                }else if (e instanceof DisabledException){
+                    respBean.setMsg("账户被禁用，登录失败");
+                }else if (e instanceof AccountExpiredException){
+                    respBean.setMsg("账户过期，登录失败");
+                }else if (e instanceof CredentialsExpiredException) {
+                    respBean.setMsg("用户名或密码错误，登录失败");
+                }
+                out.write(new ObjectMapper().writeValueAsString(respBean));
+                out.flush();
+                out.close();
+            }
+        });
+        loginFilter.setAuthenticationManager(authenticationManagerBean());
+        loginFilter.setFilterProcessesUrl("/doLogin");
+        return loginFilter;
+    }
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception{
         auth.userDetailsService(hrService);
@@ -60,63 +105,42 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/v2/*")
                 .antMatchers("/swagger-resources/**")
                 .antMatchers("/webjars/**")
+                .antMatchers("/verifyCode")
                 .mvcMatchers("/login");
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception{
+        http.addFilterAt(login(), UsernamePasswordAuthenticationFilter.class);
         http.authorizeRequests()
 //                .antMatchers("/swagger-ui.html").permitAll()
 //                .antMatchers("/springfox-swagger-ui/**").permitAll()
 //                .antMatchers("/api/**").authenticated()
                 .anyRequest().authenticated()
                 .and()
-                .formLogin()
-                .loginProcessingUrl("/doLogin")
-                .usernameParameter("username")
-                .passwordParameter("password")
-                .loginPage("/login")
-                .successHandler(new AuthenticationSuccessHandler() {
-                    @Override
-                    public void onAuthenticationSuccess(HttpServletRequest httpServletRequest,
-                                                        HttpServletResponse response,
-                                                        Authentication authentication) throws IOException, ServletException {
-                        response.setContentType("application/json;charset=utf-8");
-                        PrintWriter out = response.getWriter();
-                        Hr hr = (Hr) authentication.getPrincipal();
-                        hr.setPassword(null);
-                        RespBean ok = RespBean.ok("登录成功",hr);
-                        out.write(new ObjectMapper().writeValueAsString(ok)); //jackson的
-                        out.flush();
-                        out.close();
-                    }
-                })
-                .failureHandler(new AuthenticationFailureHandler() {
-                    @Override
-                    public void onAuthenticationFailure(HttpServletRequest request,
-                                                        HttpServletResponse response,
-                                                        AuthenticationException e) throws IOException, ServletException {
-                        response.setContentType("application/json;charset=utf-8");
-                        PrintWriter out=response.getWriter();
-                        RespBean respBean = RespBean.error("登录失败");
-                        if (e instanceof LockedException){
-                            respBean.setMsg("账户被锁定，登录失败");
-                        }else if (e instanceof BadCredentialsException){
-                            respBean.setMsg("用户名或密码错误，登录失败");
-                        }else if (e instanceof DisabledException){
-                            respBean.setMsg("账户被禁用，登录失败");
-                        }else if (e instanceof AccountExpiredException){
-                            respBean.setMsg("账户过期，登录失败");
-                        }else if (e instanceof CredentialsExpiredException) {
-                            respBean.setMsg("用户名或密码错误，登录失败");
-                        }
-                        out.write(new ObjectMapper().writeValueAsString(respBean));
-                        out.flush();
-                        out.close();
-                    }
-                })
-                .permitAll()
-                .and()
+//                .formLogin()
+//                .loginProcessingUrl("/doLogin")
+//                .usernameParameter("username")
+//                .passwordParameter("password")
+//                .loginPage("/login")
+//                .successHandler(new AuthenticationSuccessHandler() {
+//                    @Override
+//                    public void onAuthenticationSuccess(HttpServletRequest httpServletRequest,
+//                                                        HttpServletResponse response,
+//                                                        Authentication authentication) throws IOException, ServletException {
+//
+//                    }
+//                })
+//                .failureHandler(new AuthenticationFailureHandler() {
+//                    @Override
+//                    public void onAuthenticationFailure(HttpServletRequest request,
+//                                                        HttpServletResponse response,
+//                                                        AuthenticationException e) throws IOException, ServletException {
+//
+//                    }
+//                })
+//                .permitAll()
+//                .and()
                 .logout()
                 .logoutSuccessHandler(new LogoutSuccessHandler() {
                     @Override
