@@ -48,4 +48,9 @@ public class PositionService {
         List<Position> positions = positionMapper.selectAllPosition();
         return new PageInfo<>(positions,size);
     }
+
+    public int addPositions(List<Position> positions){
+        return positionMapper.batchInsert(positions);
+    }
+
 }

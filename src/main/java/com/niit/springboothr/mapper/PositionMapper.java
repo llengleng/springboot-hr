@@ -22,4 +22,6 @@ public interface PositionMapper {
     List<Position> selectAllPosition();
 
     int deletePositions(Integer[] ids);
+
+    Integer batchInsert(List<Position> positions);
 }

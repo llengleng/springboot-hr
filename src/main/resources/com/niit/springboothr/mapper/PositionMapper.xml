@@ -49,6 +49,13 @@
       true
     </trim>
   </insert>
+  <insert id="batchInsert" parameterType="com.niit.springboothr.model.Position">
+    insert into position (name, createDate, enabled) values
+    <foreach collection="list" item="position" separator=",">
+      (#{position.name,jdbcType=VARCHAR}, #{position.createDate, jdbcType=TIMESTAMP},
+      #{position.enabled, jdbcType=BIT})
+    </foreach>
+  </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.niit.springboothr.model.Position" >
     update position
     <set >
