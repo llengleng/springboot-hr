@@ -1,6 +1,8 @@
 package com.niit.springboothr.service.system.basic;
 
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.niit.springboothr.mapper.PositionMapper;
 import com.niit.springboothr.model.Position;
 import org.springframework.stereotype.Service;
@@ -39,5 +41,11 @@ public class PositionService {
 
     public Integer deletePositions(Integer[] ids){
         return positionMapper.deletePositions(ids);
+    }
+
+    public PageInfo<Position> getPositionByPage(Integer page,Integer size){
+        PageHelper.startPage(page,size);
+        List<Position> positions = positionMapper.selectAllPosition();
+        return new PageInfo<>(positions,size);
     }
 }

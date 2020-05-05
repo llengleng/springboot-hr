@@ -1,5 +1,6 @@
 package com.niit.springboothr.controller.system.basic;
 
+import com.github.pagehelper.PageInfo;
 import com.niit.springboothr.model.Position;
 import com.niit.springboothr.model.RespBean;
 import com.niit.springboothr.service.system.basic.PositionService;
@@ -21,11 +22,19 @@ public class PositionController {
     @Autowired
     PositionService positionService;
 
+//    @GetMapping("/")
+//    @ApiOperation(value = "获取所有职位", notes = "所有职位信息列表", produces = "application/json")
+//    public RespBean getAllPosition(){
+//        List<Position> positions = positionService.getAllPosition();
+//        return RespBean.ok("获取成功",positions);
+//    }
+
     @GetMapping("/")
-    @ApiOperation(value = "获取所有职位", notes = "所有职位信息列表", produces = "application/json")
-    public RespBean getAllPosition(){
-        List<Position> positions = positionService.getAllPosition();
-        return RespBean.ok("获取成功",positions);
+    @ApiOperation(value = "分页获取职位",notes = "职位信息列表")
+    public RespBean getPositionByPage(@RequestParam(defaultValue = "1") Integer page,
+                                      @RequestParam(defaultValue = "5") Integer size){
+        PageInfo<Position> positionPageInfo = positionService.getPositionByPage(page,size);
+        return RespBean.ok("",positionPageInfo);
     }
 
     @PostMapping("/")
