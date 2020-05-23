@@ -1,0 +1,89 @@
+2020-04-28 20:25:04.154[main][main] INFO  c.n.s.SpringbootHrApplication - Starting SpringbootHrApplication on LAPTOP-L1MN2SAL with PID 4424 (D:\Projects\ProjectExercise\springboot-hr\target\classes started by Lenovo in D:\Projects\ProjectExercise\springboot-hr)
+2020-04-28 20:25:04.157[main][main] INFO  c.n.s.SpringbootHrApplication - No active profile set, falling back to default profiles: default
+2020-04-28 20:25:06.412[main][main] DEBUG org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020-04-28 20:25:06.976[main][main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2020-04-28 20:25:06.988[main][main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2020-04-28 20:25:06.989[main][main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2020-04-28 20:25:06.989[main][main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.33]
+2020-04-28 20:25:07.125[main][main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-04-28 20:25:07.126[main][main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2712 ms
+2020-04-28 20:25:07.331[main][main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2020-04-28 20:25:07.488[main][main] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2020-04-28 20:25:08.212[main][main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-04-28 20:25:08.351[main][main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-04-28 20:25:08.676[main][main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/swagger-ui.html'], []
+2020-04-28 20:25:08.676[main][main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/v2/*'], []
+2020-04-28 20:25:08.676[main][main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/swagger-resources/**'], []
+2020-04-28 20:25:08.677[main][main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/webjars/**'], []
+2020-04-28 20:25:08.677[main][main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Mvc [pattern='/login'], []
+2020-04-28 20:25:08.709[main][main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@e0847a9, org.springframework.security.web.context.SecurityContextPersistenceFilter@3a4f8e8a, org.springframework.security.web.header.HeaderWriterFilter@1f3c5308, org.springframework.security.web.authentication.logout.LogoutFilter@11c3d22f, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4f581211, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5fc1e4fb, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@62de73eb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@51743cc0, org.springframework.security.web.session.SessionManagementFilter@51e94b7d, org.springframework.security.web.access.ExceptionTranslationFilter@857f74a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5ddb302]
+2020-04-28 20:25:08.770[main][main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2020-04-28 20:25:08.787[main][main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2020-04-28 20:25:08.815[main][main] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2020-04-28 20:25:08.956[main][main] WARN  s.d.s.w.r.p.ParameterDataTypeReader - Trying to infer dataType java.lang.Integer[]
+2020-04-28 20:25:08.977[main][main] WARN  s.d.s.w.r.p.ParameterDataTypeReader - Trying to infer dataType java.lang.Integer[]
+2020-04-28 20:25:09.006[main][main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2020-04-28 20:25:09.028[main][main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2020-04-28 20:25:09.031[main][main] INFO  c.n.s.SpringbootHrApplication - Started SpringbootHrApplication in 5.481 seconds (JVM running for 7.229)
+2020-04-28 20:27:26.996[http-nio-8080-exec-1][http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-04-28 20:27:26.997[http-nio-8080-exec-1][http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-04-28 20:27:27.030[http-nio-8080-exec-1][http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 33 ms
+2020-04-28 20:27:30.683[http-nio-8080-exec-1][http-nio-8080-exec-1] WARN  o.a.c.util.SessionIdGeneratorBase - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [304] milliseconds.
+2020-04-28 22:55:02.647[main][main] INFO  c.n.s.SpringbootHrApplication - Starting SpringbootHrApplication on LAPTOP-L1MN2SAL with PID 17488 (D:\Projects\ProjectExercise\springboot-hr\target\classes started by Lenovo in D:\Projects\ProjectExercise\springboot-hr)
+2020-04-28 22:55:02.650[main][main] INFO  c.n.s.SpringbootHrApplication - No active profile set, falling back to default profiles: default
+2020-04-28 22:55:03.917[main][main] DEBUG org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020-04-28 22:55:04.429[main][main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2020-04-28 22:55:04.448[main][main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2020-04-28 22:55:04.448[main][main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2020-04-28 22:55:04.449[main][main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.33]
+2020-04-28 22:55:04.549[main][main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-04-28 22:55:04.550[main][main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1779 ms
+2020-04-28 22:55:04.695[main][main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2020-04-28 22:55:04.826[main][main] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2020-04-28 22:55:05.841[main][main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-04-28 22:55:05.997[main][main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-04-28 22:55:06.460[main][main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/swagger-ui.html'], []
+2020-04-28 22:55:06.460[main][main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/v2/*'], []
+2020-04-28 22:55:06.460[main][main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/swagger-resources/**'], []
+2020-04-28 22:55:06.460[main][main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/webjars/**'], []
+2020-04-28 22:55:06.460[main][main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Mvc [pattern='/login'], []
+2020-04-28 22:55:06.508[main][main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5f2b9da8, org.springframework.security.web.context.SecurityContextPersistenceFilter@22cd8ec2, org.springframework.security.web.header.HeaderWriterFilter@627acb38, org.springframework.security.web.authentication.logout.LogoutFilter@1acc873b, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@32f308c6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@35ab4260, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@40538370, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@698ac187, org.springframework.security.web.session.SessionManagementFilter@629cbb1, org.springframework.security.web.access.ExceptionTranslationFilter@4b09d1c3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7b3c2ae0]
+2020-04-28 22:55:06.625[main][main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2020-04-28 22:55:06.654[main][main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2020-04-28 22:55:06.746[main][main] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2020-04-28 22:55:06.944[main][main] WARN  s.d.s.w.r.p.ParameterDataTypeReader - Trying to infer dataType java.lang.Integer[]
+2020-04-28 22:55:07.031[main][main] WARN  s.d.s.w.r.p.ParameterDataTypeReader - Trying to infer dataType java.lang.Integer[]
+2020-04-28 22:55:07.086[main][main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2020-04-28 22:55:07.143[main][main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2020-04-28 22:55:07.150[main][main] INFO  c.n.s.SpringbootHrApplication - Started SpringbootHrApplication in 5.042 seconds (JVM running for 8.26)
+2020-04-28 23:00:04.275[main][main] INFO  c.n.s.SpringbootHrApplication - Starting SpringbootHrApplication on LAPTOP-L1MN2SAL with PID 18048 (D:\Projects\ProjectExercise\springboot-hr\target\classes started by Lenovo in D:\Projects\ProjectExercise\springboot-hr)
+2020-04-28 23:00:04.278[main][main] INFO  c.n.s.SpringbootHrApplication - No active profile set, falling back to default profiles: default
+2020-04-28 23:00:05.217[main][main] DEBUG org.apache.ibatis.logging.LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+2020-04-28 23:00:05.592[main][main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2020-04-28 23:00:05.603[main][main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2020-04-28 23:00:05.604[main][main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2020-04-28 23:00:05.604[main][main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.33]
+2020-04-28 23:00:05.689[main][main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-04-28 23:00:05.690[main][main] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1358 ms
+2020-04-28 23:00:05.869[main][main] INFO  c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2020-04-28 23:00:05.950[main][main] INFO  c.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2020-04-28 23:00:06.919[main][main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2020-04-28 23:00:07.100[main][main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-04-28 23:00:07.582[main][main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/swagger-ui.html'], []
+2020-04-28 23:00:07.582[main][main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/v2/*'], []
+2020-04-28 23:00:07.582[main][main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/swagger-resources/**'], []
+2020-04-28 23:00:07.583[main][main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Ant [pattern='/webjars/**'], []
+2020-04-28 23:00:07.583[main][main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: Mvc [pattern='/login'], []
+2020-04-28 23:00:07.625[main][main] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5ddb302, org.springframework.security.web.context.SecurityContextPersistenceFilter@857f74a, org.springframework.security.web.header.HeaderWriterFilter@5b1ff8cd, org.springframework.security.web.authentication.logout.LogoutFilter@1da53f4f, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4a4ff5ed, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1f3c5308, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3ce7490a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4b7ab7ab, org.springframework.security.web.session.SessionManagementFilter@780ee3ad, org.springframework.security.web.access.ExceptionTranslationFilter@14201a90, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@23df7fad]
+2020-04-28 23:00:07.713[main][main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2020-04-28 23:00:07.736[main][main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2020-04-28 23:00:07.789[main][main] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2020-04-28 23:00:07.986[main][main] WARN  s.d.s.w.r.p.ParameterDataTypeReader - Trying to infer dataType java.lang.Integer[]
+2020-04-28 23:00:08.076[main][main] WARN  s.d.s.w.r.p.ParameterDataTypeReader - Trying to infer dataType java.lang.Integer[]
+2020-04-28 23:00:08.132[main][main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2020-04-28 23:00:08.191[main][main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2020-04-28 23:00:08.199[main][main] INFO  c.n.s.SpringbootHrApplication - Started SpringbootHrApplication in 4.225 seconds (JVM running for 6.818)
+2020-04-28 23:00:47.869[http-nio-8080-exec-1][http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-04-28 23:00:47.870[http-nio-8080-exec-1][http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2020-04-28 23:00:47.882[http-nio-8080-exec-1][http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 11 ms
+2020-04-28 23:00:49.034[http-nio-8080-exec-1][http-nio-8080-exec-1] WARN  o.a.c.util.SessionIdGeneratorBase - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [295] milliseconds.
