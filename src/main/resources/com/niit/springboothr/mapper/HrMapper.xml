@@ -130,15 +130,46 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <resultMap id="HrWithRoles" type="com.niit.springboothr.model.Hr" extends="BaseResultMap">
+    <collection property="roles" ofType="com.niit.springboothr.model.Role">
+      <id column="rid" property="id"/>
+      <result column="rname" property="name"/>
+      <result column="rnameZh" property="namezh"/>
+    </collection>
+  </resultMap>
+  <select id="getAllHrsExceptCurrentHr" resultMap="BaseResultMap">
+        select * from hr where id !=#{id};
+    </select>
+  <select id="getAllHrs" resultMap="HrWithRoles">
+    select hr.id, hr.name, hr.phone, hr.telephone, hr.address, hr.enabled, hr.username, hr.userface,
+    hr.remark,r.`id` as rid,r.`name` as rname,r.`nameZh` as rnameZh from hr left join hr_role hrr on
+    hr.`id`=hrr.`hrid` left join role r on hrr.`rid`=r.`id` where hr.`id`!=#{hrid}
+    <if test="keywords!=null">
+      and hr.name like concat('%',#{keywords},'%')
+    </if>
+    order by hr.id
+  </select>
+  <select id="getHrRolesById" resultType="com.niit.springboothr.model.Role">
+    select r.* from role r,hr_role hrr where hrr.`rid`=r.`id` and hrr.`hrid`=#{id}
+  </select>
+  <update id="updateUserface">
+        update hr set userface = #{url} where id=#{id};
+    </update>
+  <update id="updatePasswd">
+        update hr set password = #{encodePass} where id=#{hrid};
+    </update>
+  <select id="loadUserByUsername" resultMap="BaseResultMap">
+    select * from hr where username=#{username}
+  </select>
   <update id="updateByPrimaryKey" parameterType="com.niit.springboothr.model.Hr">
     update hr
-    set `name` = #{name,jdbcType=VARCHAR},
+    set name = #{name,jdbcType=VARCHAR},
       phone = #{phone,jdbcType=CHAR},
       telephone = #{telephone,jdbcType=VARCHAR},
       address = #{address,jdbcType=VARCHAR},
       enabled = #{enabled,jdbcType=BIT},
       username = #{username,jdbcType=VARCHAR},
-      `password` = #{password,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
       userface = #{userface,jdbcType=VARCHAR},
       remark = #{remark,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}

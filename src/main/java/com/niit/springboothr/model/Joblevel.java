@@ -9,6 +9,7 @@ import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 
 
 @Data
@@ -31,5 +32,28 @@ public class Joblevel implements Serializable {
 
     private Boolean enabled;
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {return true;}
+        if (o == null || getClass() != o.getClass()) {return false;}
+        Joblevel jobLevel = (Joblevel) o;
+        return Objects.equals(name, jobLevel.name);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(name);
+    }
+
+    public Joblevel() {
+
+    }
+
+    public Joblevel(String name) {
+
+        this.name = name;
+    }
 
 }

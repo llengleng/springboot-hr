@@ -88,7 +88,6 @@ public class PositionController {
     @GetMapping("/export")
     @ApiOperation(value = "导出数据", notes = "将所有职位导出到excel")
     public ResponseEntity<byte[]> exportData() {
-//        List<Position> positions = positionService.getPositionByPage(null, null).getList();
         List<Position> positions = positionService.getAllPosition();
         return PoiUtils.exportData(positions);
     }
@@ -96,7 +95,6 @@ public class PositionController {
     @PostMapping("/import")
     @ApiOperation(value = "导入数据", notes = "导入excel数据")
     public RespBean importData(MultipartFile file) throws IOException {
-//        file.transferTo(new File("e:\\aaa.xlsx"));
         List<Position> positions = PoiUtils.importData(file);
         if(positionService.addPositions(positions) == positions.size()) {
             return RespBean.ok("导入成功");

@@ -1,5 +1,6 @@
 package com.niit.springboothr.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -18,78 +19,79 @@ import java.util.List;
 @Data
 @ApiModel(value = "用户实体类", description = "用户基础及登录信息描述")
 public class Hr implements UserDetails {
-    /**
-     * hrID
-     */
-
-    @ApiModelProperty(value = "用户id", name = "id", required = true, dataType = "Integer")
     private Integer id;
 
-    /**
-     * 姓名
-     */
-    @ApiModelProperty(value = "用户姓名")
     private String name;
 
-    /**
-     * 手机号码
-     */
-    @ApiModelProperty(value = "手机号码")
     private String phone;
 
-    /**
-     * 住宅电话
-     */
-    @ApiModelProperty(value = "住宅电话")
     private String telephone;
 
-    /**
-     * 联系地址
-     */
-    @ApiModelProperty(value = "联系地址")
     private String address;
 
     private Boolean enabled;
 
-    /**
-     * 用户名
-     */
-    @ApiModelProperty(value = "登录用户名", name = "username", required = true, dataType = "query")
     private String username;
 
-    /**
-     * 密码
-     */
-    @ApiModelProperty(value = "登录密码", name = "password", required = true, dataType = "query")
     private String password;
 
-    @ApiModelProperty(value = "用户头像")
     private String userface;
 
     private String remark;
-
     private List<Role> roles;
 
-    private static final long serialVersionUID = 1L;
-
-
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-//        List<SimpleGrantedAuthority> authorities = new ArrayList<>(roles.size());
-//        for (Role role : roles) {
-//            authorities.add(new SimpleGrantedAuthority(role.getName()));
-//        }
-//        return authorities;
-        return null;
+    public List<Role> getRoles() {
+        return roles;
     }
 
-    @Override
-    public String getPassword() {
-        return password;
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }
 
-    @Override
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone == null ? null : phone.trim();
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone == null ? null : telephone.trim();
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address == null ? null : address.trim();
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
     public String getUsername() {
         return username;
     }
@@ -111,6 +113,44 @@ public class Hr implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return enabled;
+    }
+
+    public void setUsername(String username) {
+        this.username = username == null ? null : username.trim();
+    }
+
+    @Override
+    @JsonIgnore
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        List<SimpleGrantedAuthority> authorities = new ArrayList<>(roles.size());
+        for (Role role : roles) {
+            authorities.add(new SimpleGrantedAuthority(role.getName()));
+        }
+        return authorities;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password == null ? null : password.trim();
+    }
+
+    public String getUserface() {
+        return userface;
+    }
+
+    public void setUserface(String userface) {
+        this.userface = userface == null ? null : userface.trim();
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark == null ? null : remark.trim();
     }
 }
